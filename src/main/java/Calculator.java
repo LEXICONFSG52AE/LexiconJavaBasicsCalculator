@@ -18,3 +18,40 @@ public class Calculator {
             double num2 = scanner.nextDouble();
 
             double result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                    } else {
+                        System.out.println("Error! Division by zero.");
+                        continue;
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid operator!");
+                    continue;
+            }
+
+            System.out.println("The result is: " + result);
+
+            System.out.println("Do you want to perform another calculation? (yes/no): ");
+            String userResponse = scanner.next();
+
+            if (!userResponse.equalsIgnoreCase("yes")) {
+                continueCalculation = false;
+            }
+        }
+
+        scanner.close();
+    }
+}
